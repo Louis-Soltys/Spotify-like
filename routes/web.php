@@ -22,7 +22,12 @@ Route::post('/songs', [firstController::class, "store"])->middleware('auth');
 Route::get('/users/{id}', [firstController::class, "user"])->where('id','[0-9]+');
 Route::get("/changeLike/{id}", [firstController::class, "changeLike"])->middleware('auth')->where("id", "[0-9]+");
 Route::get("/search/{search}", [firstController::class, "search"]);
+<<<<<<< HEAD
 Route::get('/favorite', [firstController::class, 'favorite']);
+=======
+Route::get("/changeSongLike/{id}", [firstController::class, "changeSongLike"])->middleware('auth')->where("id", "[0-9]+");
+
+>>>>>>> f82675b74f1ca724aeb09086423dcb278cfa7221
 
 
 Auth::routes();

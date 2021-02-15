@@ -73,4 +73,9 @@ class firstController extends Controller
         Auth::user()->ILikeThem()->toggle($id);
         return back();
     }
+
+    public function changeSongLike($id){
+        Auth::user()->ILike()->toggle($id);
+        return back();
+    }
 }
