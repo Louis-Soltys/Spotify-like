@@ -52,4 +52,8 @@ class User extends Authenticatable
     public function TheyLikeMe(){
         return $this->belongsToMany("App\Models\User", "connection", "to_id", "from_id");
     }
+
+    public function ILike(){
+        return $this->belongsToMany("App\Models\User", "likesong", "user_id", "song_id");
+    }
 }

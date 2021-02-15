@@ -22,6 +22,7 @@ Route::post('/songs', [firstController::class, "store"])->middleware('auth');
 Route::get('/users/{id}', [firstController::class, "user"])->where('id','[0-9]+');
 Route::get("/changeLike/{id}", [firstController::class, "changeLike"])->middleware('auth')->where("id", "[0-9]+");
 Route::get("/search/{search}", [firstController::class, "search"]);
+Route::get("/changeSongLike/{id}", [firstController::class, "changeSongLike"])->middleware('auth')->where("id", "[0-9]+");
 
 
 
