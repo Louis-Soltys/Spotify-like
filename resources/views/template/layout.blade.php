@@ -17,6 +17,7 @@
         <ul>
             <li><a href='/'>Index</a></li>
             <li><a href='/about'>About</a></li>
+            <li><a href='/favorite'>Favoris</a></li>
             <li><form method="get" action="/search" id='search'>
                 <input type='text' name='search' placeholder="Cherchez une chanson ou un utilisateur">
                 <input type="submit" value='chercher' name='submit-search'>

@@ -21,6 +21,10 @@ class firstController extends Controller
         return view("firstController.about");
     }
 
+    function favorite(){
+        return view("firstController.favorite");
+    }
+
     function article($id){
 
     return view("firstController.article", ["id" => $id]);
