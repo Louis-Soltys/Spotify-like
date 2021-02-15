@@ -55,7 +55,14 @@
             </li>
         @endguest
         </ul>
-        <audio controls id="audio">
+        <div id="player">
+            <button id='previous'><<</button>
+            <audio controls id="audio"></audio>
+            <button id='next'>>></button>
+            <label>Aléatoire</label>
+            <input type="checkbox" id='random' name='checkbox'>
+
+        </div>
 
     </header>
 
