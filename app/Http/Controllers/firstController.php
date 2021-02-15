@@ -27,6 +27,13 @@ class firstController extends Controller
 
     }
 
+    public function search($search){
+        $users = User::whereRaw("name LIKE CONCAT(?, '%')", [$search])->orderBy('id', 'desc')->get();
+        $songs = Song::whereRaw("titre LIKE CONCAT('%', ?, '%')", [$search])->orderBy('votes', 'desc')->get();
+
+        return view("firstController.search", ["search" => $search, "user" => $users, "songs" => $songs]);
+    }
+
     public function create(){
         return view("firstController.create");
     }

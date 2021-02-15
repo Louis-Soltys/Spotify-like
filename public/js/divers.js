@@ -6,3 +6,9 @@ $(document).ready(function() {
         audio.play();
     })
 })
+
+$("#search").submit(function(e) {
+    e.preventDefault();
+    let s = e.target.elements[0].value;
+    window.location.href = '/search/'+ s;
+})
