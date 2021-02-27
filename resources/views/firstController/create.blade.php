@@ -1,6 +1,4 @@
-@extends('template.layout')
-
-@section('content')
+    <section id='container'>
     <h1>New Song</h1>
     
     @include("partials._errors")
@@ -11,4 +9,4 @@
         <input type='file' name='song' placeholder="song"/>
         <input type='submit'>
     </form>
-@endsection
+    </section>

@@ -17,9 +17,6 @@ class firstController extends Controller
 
     }
 
-    function about(){
-        return view("firstController.about");
-    }
 
     function favorite(){
         return view("firstController.favorite");

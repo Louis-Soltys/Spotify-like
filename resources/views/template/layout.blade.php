@@ -15,9 +15,8 @@
 <body>
     <header>
         <ul>
-            <li><a href='/'>Index</a></li>
-            <li><a href='/about'>About</a></li>
-            <li><a href='/favorite'>Favoris</a></li>
+            <li><a href='/' id='index'>Index</a></li>
+            <li><a href='/favorite' id='fav'>Favoris</a></li>
             <li><form method="get" action="/search" id='search'>
                 <input type='text' name='search' placeholder="Cherchez une chanson ou un utilisateur">
                 <input type="submit" value='chercher' name='submit-search'>
@@ -35,7 +34,7 @@
                 </li>
             @endif
         @else
-            <li><a href='/songs/create'>NEw</a></li>
+            <li><a href='/songs/create' id="create">NEw</a></li>
             <li>
                 <a>
                     {{ Auth::user()->name }}

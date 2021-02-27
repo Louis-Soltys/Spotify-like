@@ -51,4 +51,16 @@ $(document).ready(function() {
             current = current;
         }
       });
-  });
+
+      $('a').on("click",function(e){ 
+        e.preventDefault(); // cancel click
+        var page = $(this).attr('href');   
+        $('#container').load(page);
+      });
+    
+});
+
+history.pushState(null, null, location.href);
+window.onpopstate = function () {
+    history.go(1);
+};

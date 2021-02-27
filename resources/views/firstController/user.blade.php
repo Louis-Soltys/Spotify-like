@@ -1,6 +1,6 @@
-@extends('template/layout')
-
-@section('content')
+@if (!Request::ajax())
+    @include('template.layout')
+@endif
     <h1>Bienvenue chez {{ $user->name }} </h1>
 
     <h3>Quelques infos</h3>
@@ -14,14 +14,12 @@
     @auth
         @if(Auth::id() != $user->id)
             @if(Auth::user()->ILikeThem->contains($user->id))
-                <a href="/changeLike/{{$user->id}}">Suivi</a>
+                <a href="/changeLike/{{$user->id}}" id='follow'>Suivi</a>
             @else
-                <a href="/changeLike/{{$user->id}}">Suivre</a>
+                <a href="/changeLike/{{$user->id}}" id='unfo'>Suivre</a>
             @endif
         @endif    
     @endauth
 
     <h3>Mes chansons</h3>
     @include("partials._songs", ["songs" => $user->songs])
-
-@endsection
