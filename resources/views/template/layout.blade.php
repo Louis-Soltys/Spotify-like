@@ -19,7 +19,7 @@
             <li><a href='/favorite' id='fav'>Favoris</a></li>
             <li><form method="get" action="/search" id='search'>
                 <input type='text' name='search' placeholder="Cherchez une chanson ou un utilisateur">
-                <input type="submit" value='chercher' name='submit-search'>
+                <input type="submit" value='chercher' name='submit-search' id='btn-search'>
             </form></li>
             @guest
             @if (Route::has('login'))
@@ -64,11 +64,11 @@
         </div>
 
     </header>
+    <section id='container'>
+        @section('content')
 
-    @section('content')
-        
-    @show
-
+        @show
+    </section>
 </body>
 
 <script src="/js/jquery.min.js"></script>
