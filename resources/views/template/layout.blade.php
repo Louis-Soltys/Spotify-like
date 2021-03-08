@@ -100,15 +100,13 @@
         </div>
     </section>
         
-    <section class="body-container">
-        <div id='pjax-container'>
-            @yield('content')
-        </div>
+    <section class="body-container"  id='pjax-container'>
+        @yield('content')
         @auth
         <div class="body-container__play-music">
             <div>
                 <img src="/css/img/fast-music.svg" id='previous' alt="">
-                <div><img src="/css/img/play-lecteur.svg" id='audio' alt=""></div>
+                <div><img src="/css/img/play-lecteur.svg" id='play' alt=""></div>
                 <img src="/css/img/fast-music.svg" id='next' alt="">
             </div>
             <div>
