@@ -56,7 +56,7 @@ class firstController extends Controller
         $song->user_id = Auth::id();
         $song->save();
 
-        return redirect("/");
+        return redirect("/")->with('toastr', ["status"=>"success", "message"=>"Musique bien ajoutée !"]);
     }
 
     public function user($id){

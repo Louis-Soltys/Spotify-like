@@ -19,6 +19,7 @@ class CreateSongsTable extends Migration
             $table->string('url', 255);
             $table->integer('votes');
             $table->bigInteger('user_id');
+            $table->string('genre');
             $table->timestamps();
         });
     }
