@@ -54,6 +54,7 @@ class firstController extends Controller
         $song->url = "/uploads/".Auth::id()."/".$name;
         $song->votes = 0;
         $song->user_id = Auth::id();
+        $song->genre = $request->input('genre');
         $song->save();
 
         return redirect("/")->with('toastr', ["status"=>"success", "message"=>"Musique bien ajoutée !"]);
