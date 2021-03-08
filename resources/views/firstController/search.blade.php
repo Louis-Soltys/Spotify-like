@@ -1,4 +1,4 @@
-@extends("template.layout")
+@if(!Request::ajax()) @extends('template.layout') @endif
 
 @section("content")
     <h1>Recherche à porpos de {{$search}}</h1>
@@ -8,11 +8,11 @@
     @foreach ($user as $u)
        <li><a href='/users/{{$u->id}}'>{{$u->name}}</a>
         @auth
-            @if(Auth::id() != $user->id)
-                @if(Auth::user()->ILikeThem->contains($user->id))
-                    <a href="/changeLike/{{$user->id}}">Suivi</a>
+            @if(Auth::id() != $u->id)
+                @if(Auth::user()->ILikeThem->contains($u->id))
+                    <a href="/changeLike/{{$u->id}}">Suivi</a>
                 @else
-                    <a href="/changeLike/{{$user->id}}">Suivre</a>
+                    <a href="/changeLike/{{$u->id}}">Suivre</a>
                 @endif
             @endif    
         @endauth
@@ -26,12 +26,15 @@
         Aimé par {{ $s->theyLike()->count() }} personnes
         uploadé par<a href="/users/{{$s->user->id}}"> {{ $s->user->name }}</a> 
         @auth
-            @if(Auth::user()->ILike->contains($s->id))
-                <a href="/changeSongLike/{{$s->id}}">Dislike
-            @else
-                <a href="/changeSongLike/{{$s->id}}">Like</li>
-            @endif
-        @endauth
+         @if(Auth::user()->ILike->contains($s->id))
+            <a href="/changeSongLike/{{$s->id}}">Dislike
+         @else
+            <a href="/changeSongLike/{{$s->id}}">Like
+         @endif
+      @endauth
+      @guest
+         <a href="/login">Like</li>
+      @endguest
     @endforeach
     </ul>
 @endsection

@@ -9,62 +9,119 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <link href="css/style.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
 </head>
 
 <body>
-    <header>
-        <ul>
-            <li><a href='/'>Index</a></li>
-            <li><a href='/about'>About</a></li>
-            <li><form method="get" action="/search" id='search'>
-                <input type='text' name='search' placeholder="Cherchez une chanson ou un utilisateur">
-                <input type="submit" value='chercher' name='submit-search'>
-            </form></li>
-            @guest
-            @if (Route::has('login'))
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                </li>
-            @endif
-            
-            @if (Route::has('register'))
-                <li>
-                    <a href="{{ route('register') }}">{{ __('Register') }}</a>
-                </li>
-            @endif
-        @else
-            <li><a href='/songs/create'>NEw</a></li>
-            <li>
-                <a>
-                    {{ Auth::user()->name }}
-                </a>
-
-                <div>
-                    <a href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                </div>
-            </li>
-        @endguest
-        </ul>
-        <audio controls id="audio">
-
-    </header>
-
-    @section('content')
+    <section class="main-menu-container">
+        <div class="main-menu-container__logo-title">
+            <img src="/css/img/logo.png" alt="">
+            <h2>Audify</h2>
+        </div>
+        <div class="main-menu-container__menu">
+            <div>
+                <h3>Menu</h3>
+                <nav>
+                    <div>
+                        <img class="earth" src="/css/img/earth.svg" alt="">
+                        <a href="">Explore</a>
+                    </div>
+                    <div>
+                        <img class="earth" src="/css/img/earth.svg" alt="">
+                        <a href="">Discover</a>
+                    </div>
+                    <div>
+                        <img class="earth" src="/css/img/earth.svg" alt="">
+                        <a href="">Favoris</a>
+                    </div>
+                    <div>
+                        <img class="earth" src="/css/img/earth.svg" alt="">
+                        <a href="">Abonnés</a>
+                    </div>
+                </nav>
+            </div>
+            <div>
+                <h3>Playlist</h3>
+                <nav>
+                    <div>
+                        <img class="earth" src="/css/img/earth.svg" alt="">
+                        <a href="">Create playlist</a>
+                    </div>
+                    <div>
+                        <img class="earth" src="/css/img/earth.svg" alt="">
+                        <a href="">Relax</a>
+                    </div>
+                </nav>
+            </div>
+            <div>
+                <h3>Account</h3>
+                @guest
+                    @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a class="nav-link ajax-request" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                    @endif
+                
+                    @if (Route::has('register'))
+                        <li>
+                            <a class='ajax-request' href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                    @endif
+                @else
+                    <nav>
+                        <div>
+                            <img class="earth" src="/css/img/earth.svg" alt="">
+                            <a>{{ Auth::user()->name }}</a>
+                        </div>
+    
+                        <div>
+                            <img class="earth" src="/css/img/earth.svg" alt="">
+                            <a class='ajax-request' href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                Déconnexion
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"> @csrf </form>
+                        </div>
+                    </nav>
+                @endguest
+            </div>
+        </div>
+        <div class="main-menu-container__switch-mode">
+            <label class="switch">
+                <input type="checkbox" class="switch__checkbox" />
+                <div class=""></div>
+            </label>
+            <div>
+                <p>Light</p>
+                <p>Dark</p>
+            </div>
+        </div>
+    </section>
         
-    @show
-
+    <section class="body-container">
+        <div id='pjax-container'>
+            @yield('content')
+        </div>
+        @auth
+        <div class="body-container__play-music">
+            <div>
+                <img src="/css/img/fast-music.svg" id='previous' alt="">
+                <div><img src="/css/img/play-lecteur.svg" id='audio' alt=""></div>
+                <img src="/css/img/fast-music.svg" id='next' alt="">
+            </div>
+            <div>
+                <p>Turning Away | SUM41</p>
+                <audio controls id="audio"></audio>
+            </div>
+            <img src="/css/img/like.svg" alt="">
+        </div>
+        @endauth
+    </section>
 </body>
 
 <script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.pjax.js"></script>
 <script src="/js/divers.js"></script>
 
 </html>
