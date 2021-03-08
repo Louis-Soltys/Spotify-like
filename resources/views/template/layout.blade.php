@@ -15,33 +15,33 @@
 <body>
     <header>
         <ul>
-            <li><a href='/' id='index'>Index</a></li>
-            <li><a href='/favorite' id='fav'>Favoris</a></li>
+            <li><a href='/' id='index' class='ajax-request-index'>Index</a></li>
+            <li><a href='/favorite' id='fav' class='ajax-request'>Favoris</a></li>
             <li><form method="get" action="/search" id='search'>
-                <input type='text' name='search' placeholder="Cherchez une chanson ou un utilisateur">
+                <input type='text' name='search' placeholder="Cherchez une chanson ou un utilisateur" required>
                 <input type="submit" value='chercher' name='submit-search' id='btn-search'>
             </form></li>
             @guest
             @if (Route::has('login'))
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    <a class="nav-link ajax-request" href="{{ route('login') }}">{{ __('Login') }}</a>
                 </li>
             @endif
             
             @if (Route::has('register'))
                 <li>
-                    <a href="{{ route('register') }}">{{ __('Register') }}</a>
+                    <a class='ajax-request' href="{{ route('register') }}">{{ __('Register') }}</a>
                 </li>
             @endif
         @else
-            <li><a href='/songs/create' id="create">NEw</a></li>
+            <li><a href='/songs/create' id="create" class='ajax-request'>NEw</a></li>
             <li>
                 <a>
                     {{ Auth::user()->name }}
                 </a>
 
                 <div>
-                    <a href="{{ route('logout') }}"
+                    <a class='ajax-request' href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
@@ -64,14 +64,13 @@
         </div>
 
     </header>
-    <section id='container'>
-        @section('content')
-
-        @show
-    </section>
+    <div id='pjax-container'>
+        @yield('content')
+    </div>
 </body>
 
 <script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.pjax.js"></script>
 <script src="/js/divers.js"></script>
 
 </html>
