@@ -9,7 +9,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <link href="css/style.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
+  <link href="/css/toastr.css" rel="stylesheet">
 </head>
 
 <body>
@@ -54,23 +55,29 @@
             </li>
         @endguest
         </ul>
+        
         <div id="player">
             <button id='previous'><<</button>
             <audio controls id="audio"></audio>
             <button id='next'>>></button>
             <label>Aléatoire</label>
             <input type="checkbox" id='random' name='checkbox'>
-
         </div>
 
     </header>
     <div id='pjax-container'>
         @yield('content')
+        @if(Session::has("toastr"))
+            <script>
+                toastr.{{Session::get('toastr')['status']}}('{{Session::get("toastr")["message"]}}')
+            </script>
+        @endif
     </div>
 </body>
 
 <script src="/js/jquery.min.js"></script>
 <script src="/js/jquery.pjax.js"></script>
+<script src="/js/toastr.min.js"></script>
 <script src="/js/divers.js"></script>
 
 </html>

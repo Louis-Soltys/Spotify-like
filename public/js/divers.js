@@ -4,12 +4,11 @@ $(document).ready(function() {
 
     allsongs = $('a.song');
 
-    $("a.song").click(function(e) {
+    $("#pjax-container").on('click', "a.song", function(e) {
          e.preventDefault();
          audio.src =  $(this).attr('data-file')
          audio.play();
          current = $(this).attr("data-nb")
-         console.log('ok');
     })
 
     audio.addEventListener('ended',function(){
@@ -63,8 +62,3 @@ $(document).ready(function() {
     $(document).pjax('a:not(.song)', '#pjax-container')
       
 });
-
-history.pushState(null, null, location.href);
-window.onpopstate = function () {
-    history.go(1);
-};
