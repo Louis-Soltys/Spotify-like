@@ -59,13 +59,13 @@
                 @guest
                     @if (Route::has('login'))
                         <li class="nav-item">
-                            <a class="nav-link ajax-request" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                     @endif
                 
                     @if (Route::has('register'))
                         <li>
-                            <a class='ajax-request' href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                     @endif
                 @else
@@ -77,7 +77,7 @@
     
                         <div>
                             <img class="earth" src="/css/img/earth.svg" alt="">
-                            <a class='ajax-request' href="{{ route('logout') }}"
+                            <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                                 Déconnexion
@@ -100,20 +100,35 @@
         </div>
     </section>
         
-    <section class="body-container"  id='pjax-container'>
+     <section class="body-container"> {{-- ajouter une div contenant l'id "pjax-container" --}}
+         <div id='pjax-container'>
         @yield('content')
         @auth
+         </div>
         <div class="body-container__play-music">
             <div>
                 <img src="/css/img/fast-music.svg" id='previous' alt="">
-                <div><img src="/css/img/play-lecteur.svg" id='play' alt=""></div>
+                <div id='play-btn'><img src="/css/img/play-lecteur.svg" id='play' alt=""></div>
                 <img src="/css/img/fast-music.svg" id='next' alt="">
             </div>
             <div>
-                <p>Turning Away | SUM41</p>
-                <audio controls id="audio"></audio>
-            </div>
-            <img src="/css/img/like.svg" alt="">
+                <p id='title'></p>
+                <p id='artist'></p>
+                <audio id="audio"></audio>
+                <p id='duration'></p>
+                <p id='currentTime'></p>
+                volume
+                <input type="range" id="vol" max="1" min="0" step="0.01" onchange="changevolume(this.value)" />
+                <div class="buffered">
+                    <span id="buffered-amount"></span>
+                  </div>
+                  <div class="progress">
+                    <span id="progress-amount"></span>
+                  </div>
+                </div>
+            <a href="#" id='like-btn'><img src="/css/img/like.svg" alt="">like</a>
+            <label>Aléatoire (à enlever quand on aura le logo) ---></label>
+            <input type='checkbox' name='checkbox' id='random'>
         </div>
         @endauth
         @if(Session::has("toastr"))
