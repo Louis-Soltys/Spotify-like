@@ -57,7 +57,7 @@ class firstController extends Controller
         $song->genre = $request->input('genre');
         $song->save();
 
-        return redirect("/")->with('toastr', ["status"=>"success", "message"=>"Musique bien ajoutée !"]);
+        return back()->with('toastr', ["status"=>"success", "message"=>"Musique bien ajoutée !"]);
     }
 
     public function user($id){

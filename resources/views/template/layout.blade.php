@@ -25,7 +25,7 @@
                 <nav>
                     <div>
                         <img class="earth" src="/css/img/earth.svg" alt="">
-                        <a href="">Explore</a>
+                        <a href="/index.blade.php">Explore</a>
                     </div>
                     <div>
                         <img class="earth" src="/css/img/earth.svg" alt="">
@@ -72,7 +72,7 @@
                     <nav>
                         <div>
                             <img class="earth" src="/css/img/earth.svg" alt="">
-                            <a>{{ Auth::user()->name }}</a>
+                            <a href="users/{{Auth::user()->id}}">{{ Auth::user()->name }}</a>
                         </div>
     
                         <div>
@@ -100,7 +100,7 @@
         </div>
     </section>
         
-    <section class="body-container"  id='pjax-container'>
+    <section class="body-container" id="pjax-container">
         @yield('content')
         @auth
         <div class="body-container__play-music">
@@ -111,7 +111,7 @@
             </div>
             <div>
                 <p>Turning Away | SUM41</p>
-                <audio controls id="audio"></audio>
+                <audio id="audio"></audio>
             </div>
             <img src="/css/img/like.svg" alt="">
         </div>
