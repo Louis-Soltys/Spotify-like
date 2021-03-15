@@ -2,7 +2,7 @@
 @php
 $nb = 0;
 @endphp
-@foreach($songs as $s)
+@foreach($song as $s)
     <li><a href ='#' data-file="/render/{{ $s->id }}{{substr($s->url, 10)}}" data-nb='{{ $nb++}}' data-title='{{ $s->titre }}' data-artist='{{ $s->user->name }}' data-like='{{ $s->id }}' class="song">{{ $s->titre }}</a> 
       Aimé par {{ $s->theyLike()->count() }} personnes
          uploadé par<a href="/users/{{$s->user->id}}" class='user'> {{ $s->user->name }}</a> 

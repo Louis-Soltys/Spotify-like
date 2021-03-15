@@ -25,7 +25,7 @@
                 <nav>
                     <div>
                         <img class="earth" src="/css/img/earth.svg" alt="">
-                        <a href="">Explore</a>
+                        <a href="/index.blade.php">Explore</a>
                     </div>
                     <div>
                         <img class="earth" src="/css/img/earth.svg" alt="">
@@ -72,7 +72,7 @@
                     <nav>
                         <div>
                             <img class="earth" src="/css/img/earth.svg" alt="">
-                            <a>{{ Auth::user()->name }}</a>
+                            <a href="users/{{Auth::user()->id}}">{{ Auth::user()->name }}</a>
                         </div>
     
                         <div>
