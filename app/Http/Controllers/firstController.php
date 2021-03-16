@@ -19,7 +19,9 @@ class firstController extends Controller
 
 
     function favorite(){
-        return view("firstController.favorite");
+        $s = Song::all();
+
+        return view("firstController.favorite", ["song" => $s]);
     }
 
     function article($id){
@@ -76,4 +78,7 @@ class firstController extends Controller
         Auth::user()->ILike()->toggle($id);
         return back();
     }
+
+    
+
 }
