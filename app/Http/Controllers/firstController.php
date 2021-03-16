@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Song;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\File;
+use Response;
 
 class firstController extends Controller
 {
@@ -45,7 +46,7 @@ class firstController extends Controller
         
         $request->validate([
             'titre' => 'required|min:4|max:255',
-            'song' => 'required|file|mimes:mp3,ogg'
+            'song' => 'required|file|mimes:mp3,ogg',
         ]);
 
 
@@ -59,8 +60,25 @@ class firstController extends Controller
         $song->genre = $request->input('genre');
         $song->save();
 
-        return redirect("/")->with('toastr', ["status"=>"success", "message"=>"Musique bien ajoutée !"]);
+        return back()->with('toastr', ["status"=>"success", "message"=>"Musique bien ajoutée !"]);
     }
+
+
+    public function render($id, $file) {
+        $song = Song::find($id);
+        $file = ".".$song->url;
+        $test = File::get($file);
+            $mime_type = "audio/mp3";
+
+            $fileContents = File::get($file);
+            return Response::make($fileContents, 200)
+                        ->header('Accept-Ranges', 'bytes')
+                        ->header('Content-Type', $mime_type)
+                        ->header('Content-Length', filesize($file))
+                        ->header('vary', 'Accept-Encoding');
+        }
+
+
 
     public function user($id){
 
