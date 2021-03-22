@@ -1,8 +1,56 @@
 @extends('template.layout')
 
 @section('content')
-
-    <h1>Playlist à partir de vos musiques favorites</h1>
+<section class="body-container-explore">
+   <div class="body-container-explore__menu">
+       <div>
+           <img src="./img/loupe.svg" alt="">
+           <input type="text" placeholder="Search">
+       </div>
+       <div>
+           <div></div>
+           <p>John Smith</p>
+       </div>
+   </div>
+   <div class="body-container__favorite">
+       <div>
+           <h2>Mes musiques favorites</h2>
+           <p>20</p>
+       </div>
+       <div class="favorite-container">
+           <div>
+               <div>
+                   <p>01</p>
+                   <img src="/css/img/Order-in-decline.jpg" alt="">
+                   <div>
+                       <h3>War</h3>
+                       <p>Sum41</p>
+                   </div>
+               </div>
+               <div>
+                   <p>3:40</p>
+                   <div><img src="/css/img/play.svg" alt=""></div>
+                   <img src="/css/img/like.svg" alt="">
+               </div>
+           </div>
+           <div>
+               <div>
+                  <p>01</p>
+                  <img src="/css/img/Order-in-decline.jpg" alt="">
+                  <div>
+                     <h3>War</h3>
+                     <p>Sum41</p>
+                  </div>
+               </div>
+               <div>
+                  <p>3:40</p>
+                  <div><img src="/css/img/play.svg" alt=""></div>
+                  <img src="/css/img/like.svg" alt="">
+               </div>
+            </div>
+       </div>
+   </div>
+</section>
 
     <ul>
         @php

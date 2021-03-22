@@ -25,19 +25,19 @@
                 <nav>
                     <div>
                         <img class="earth" src="/css/img/earth.svg" alt="">
-                        <a href="/index.blade.php">Explore</a>
+                        <a href="/">Accueil</a>
                     </div>
                     <div>
                         <img class="earth" src="/css/img/earth.svg" alt="">
-                        <a href="">Discover</a>
+                        <a href="/categories">Catégories</a>
                     </div>
                     <div>
                         <img class="earth" src="/css/img/earth.svg" alt="">
-                        <a href="">Favoris</a>
+                        <a href="/favorite">Favoris</a>
                     </div>
                     <div>
                         <img class="earth" src="/css/img/earth.svg" alt="">
-                        <a href="">Abonnés</a>
+                        <a href="/abonnes">Abonnés</a>
                     </div>
                 </nav>
             </div>
@@ -46,7 +46,7 @@
                 <nav>
                     <div>
                         <img class="earth" src="/css/img/earth.svg" alt="">
-                        <a href="">Create playlist</a>
+                        <a href="/create-playlist">Create playlist</a>
                     </div>
                     <div>
                         <img class="earth" src="/css/img/earth.svg" alt="">
@@ -100,8 +100,7 @@
         </div>
     </section>
         
-     <section class="body-container"> {{-- ajouter une div contenant l'id "pjax-container" --}}
-         <div id='pjax-container'>
+     <section class="body-container" id='pjax-container'> {{-- ajouter une div contenant l'id "pjax-container" --}}
         @yield('content')
         @auth
          </div>

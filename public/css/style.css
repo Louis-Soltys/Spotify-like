@@ -665,7 +665,317 @@ body{
     width: 20px;
 }
 
+/* Categories page */
+.body-container__categories{
+    color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.categories__playlist-container, .categories__category-container{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.categories__category-container{
+    margin-top: 50px;
+}
+
+.categories__playlist-container > div:nth-child(1), .categories__category-container > div:nth-child(1){
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.categories__playlist-container > div:nth-child(2), .categories__category-container > div:nth-child(2){
+    width: 700px;
+    display: flex;
+    align-items: center;
+    overflow: scroll;
+}
+
+.categories__playlist-container > div:nth-child(2) > div{
+    height: 100px;
+    flex: 1 0 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    overflow: hidden;
+}
+
+.categories__category-container > div:nth-child(2) > div{
+    height: 150px;
+    flex: 1 0 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    overflow: hidden;
+}
+
+.categories__playlist-container > div:nth-child(2) > div img, .categories__category-container > div:nth-child(2) > div img{
+    width:100%;
+    height:100%;
+    display:block;
+}
+
+/* Page favorite */
+.body-container__favorite{
+    color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.body-container__favorite > div:nth-child(1){
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.favorite-container{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 400px;
+    overflow: auto;
+}
+
+.favorite-container > div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.favorite-container > div > div:nth-child(1){
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 200px;
+}
+
+.favorite-container > div > div > p{
+    color: #9A9AA6;
+    margin: 0;
+}
+
+.favorite-container > div > div > img{
+    width: 60px;
+}
+
+.favorite-container > div > div > div h3{
+    margin: 0;
+    font-size: 16px;
+}
+
+.favorite-container > div > div > div p{
+    margin: 0;
+    font-size: 13px;
+}
+
+.favorite-container > div > div:nth-child(2){
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 150px;
+}
+
+.favorite-container > div > div:nth-child(2) > div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    width: 20px;
+    border: 1px solid #9A9AA6;
+    border-radius: 5px;
+}
+
+.favorite-container > div > div:nth-child(2) > div img{ 
+    width: 10px;
+}
+
+.favorite-container > div > div:nth-child(2) > img{ 
+    width: 20px;
+}
+
+/* Page abonnée */
+.body-container__abonne{
+    color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.body-container__abonne > div:nth-child(1){
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.abonne-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.abonne-container > div{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.abonne-container > div > div p{
+    margin-right: 15px;
+}
+
+.abonne-container > div img{
+    width: 60px;
+    margin-right: 15px;
+}
+
+.abonne-container > div > div{
+    display: flex;
+    align-items: center;
+}
+
+.abonne-container > div button{
+    width: 140px;
+    height: 30px;
+    background-color: #18181D;
+    border: 1px solid #9A9AA6;
+    border-radius: 7px;
+    padding: 7px 10px;
+    color: white;
+    margin: 5px 0;
+    transition: 0.4s ease;
+    cursor: pointer;
+}
+
+.abonne-container > div button:hover{
+    background-color: #9A9AA6;
+    color: black;
+}
+
+/* Page create playlist */
+.body-container__playlist{
+    color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.playlist__listen-playlist{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.playlist__create-playlist{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.playlist__create-playlist > div:nth-child(1){
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.playlist__create-playlist > div:nth-child(1) > input{
+    display: flex;
+    align-items: center;
+    border: 1px solid #9A9AA6;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin: 10px 0;
+    background-color: #202026;
+    color: white;
+}
+
+.create-playlist__container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.create-playlist__container > div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.create-playlist__container > div > div:nth-child(1){
+    display: flex;
+    align-items: center;
+}
+
+.create-playlist__container > div > div:nth-child(1) > p{
+    margin-right: 10px;
+}
+
+.create-playlist__container > div > div:nth-child(1) img{
+    width: 60px;
+    margin-right: 15px;
+}
+
+.create-playlist__container > div > div:nth-child(1) > div h4, .create-playlist__container > div > div:nth-child(1) > div p{
+    margin: 5px 2px;
+}
+
+.create-playlist__container > div > div:nth-child(2){
+    display: flex;
+    align-items: center;
+}
+
+.create-playlist__container > div > div:nth-child(2) > img{
+    width: 25px;
+}
+
+.create-playlist__container > div > div:nth-child(2) > input{
+    margin-left: 15px;
+    height: 14px;
+    width: 14px;
+}
+
+.playlist__create-playlist > form{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.playlist__create-playlist > form > button{
+    margin-top: 30px;
+    border: 1px solid #5773FF;
+    border-radius: 20px;
+    background-color: #5773FF;
+    color: white;
+    padding: 10px 30px;
+}
 
 /* TEST */
 

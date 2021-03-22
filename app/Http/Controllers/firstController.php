@@ -27,8 +27,18 @@ class firstController extends Controller
 
     function article($id){
 
-    return view("firstController.article", ["id" => $id]);
+        return view("firstController.article", ["id" => $id]);
 
+    }
+
+    function categories(){
+        return view("firstController.categories");
+    }
+    function abonnes(){
+        return view("firstController.abonnes");
+    }
+    function createPlaylist(){
+        return view("firstController.create-playlist");
     }
 
     public function search($search){
