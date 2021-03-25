@@ -26,8 +26,9 @@ Route::get("/search/{search}", [firstController::class, "search"])->middleware('
 Route::get('/favorite', [firstController::class, 'favorite'])->middleware('auth');
 Route::get('/create-playlist', [firstController::class, 'createPlaylist'])->middleware('auth');
 Route::get('/abonnes', [firstController::class, 'abonnes'])->middleware('auth');
-Route::get("/changeSongLike/{id}", [firstController::class, "changeSongLike"])->middleware('auth')->where("id", "[0-9]+")->middleware('auth');
-Route::get("/render/{id}/{file}", [firstController::class, "render"])->middleware('auth');
+Route::get("/changeSongLike/{id}", [firstController::class, "changeSongLike"])->middleware('auth')->where("id", "[0-9]+");
+Route::get("/render/{id}/{file}", [firstController::class, "render"])->middleware('auth')->where("id", "[0-9]+");
+Route::get("/genre/{genre}", [firstController::class, "genres"])->middleware('auth')->where("id", "[0-9]+");
 
 
 

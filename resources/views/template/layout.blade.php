@@ -72,7 +72,7 @@
                     <nav>
                         <div>
                             <img class="earth" src="/css/img/earth.svg" alt="">
-                            <a href="users/{{Auth::user()->id}}">{{ Auth::user()->name }}</a>
+                            <a href="/users/{{Auth::user()->id}}">{{ Auth::user()->name }}</a>
                         </div>
     
                         <div>

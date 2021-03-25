@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Song;
 use App\Models\User;
+use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Response;
@@ -17,7 +18,6 @@ class firstController extends Controller
         return view("firstController.index", ["song" => $s]);
 
     }
-
 
     function favorite(){
         $s = Song::all();
@@ -32,8 +32,11 @@ class firstController extends Controller
     }
 
     function categories(){
-        return view("firstController.categories");
+        $s = Song::all();
+
+        return view("firstController.categories", ["song" => $s]);
     }
+
     function abonnes(){
         return view("firstController.abonnes");
     }
@@ -107,6 +110,11 @@ class firstController extends Controller
         return back();
     }
 
-    
+    function genres(Request $genre){
+        $s = Song::all();
+        $genre = $genre->genre;
+        return view("firstController.genres", ["song" => $s, "genre" => $genre]);
+
+    }
 
 }

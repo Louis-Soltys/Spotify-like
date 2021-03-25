@@ -1,7 +1,7 @@
 @extends('template.layout')
 
 @section('content')
-<section class="body-container-explore">
+{{-- <section class="body-container-explore">
    <div class="body-container-explore__menu">
        <div>
            <img src="./img/loupe.svg" alt="">
@@ -50,7 +50,7 @@
             </div>
        </div>
    </div>
-</section>
+</section> --}}
 
     <ul>
         @php
