@@ -100,9 +100,10 @@
         </div>
     </section>
         
-     <section class="body-container" id='pjax-container'> {{-- ajouter une div contenant l'id "pjax-container" --}}
-        @yield('content')
-        @auth
+     <section class="body-container">
+         <div id='pjax-container'> {{-- modifier div contenant l'id "pjax-container" (obligatoire) --}}
+            @yield('content')
+            @auth
          </div>
         <div class="body-container__play-music">
             <div>
