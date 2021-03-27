@@ -19,7 +19,7 @@
                     @foreach($song as $s)
                         <div>
                             <div>
-                                <p>01</p>
+                                <p>{{$s->id}}</p>
                                 <div class="top-chart__list-img-album"></div>
                                 <div>
                                     <h4><a href ='#' data-file="/render/{{ $s->id }}{{substr($s->url, 10)}}" data-nb='{{ $nb++}}' data-title='{{ $s->titre }}' data-artist='{{ $s->user->name }}' data-like='{{ $s->id }}' class="song">{{ $s->titre }}</a></h4>

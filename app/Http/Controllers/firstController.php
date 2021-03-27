@@ -14,7 +14,6 @@ class firstController extends Controller
 {
     function index(){
         $s = Song::all();
-
         return view("firstController.index", ["song" => $s]);
 
     }
@@ -94,9 +93,9 @@ class firstController extends Controller
 
 
     public function user($id){
-
+        $s = Song::all();
         $user = User::findOrFail($id);
-        return view("firstController.user", ["user" => $user]);
+        return view("firstController.user", ["user" => $user],["song" => $s]);
 
     }
 
