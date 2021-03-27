@@ -17,4 +17,4 @@ $nb = 0;
          <a href="/login">Like</a></li>
       @endguest
      @endforeach
-    </ul>
+</ul>

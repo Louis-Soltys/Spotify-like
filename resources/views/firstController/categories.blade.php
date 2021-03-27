@@ -2,16 +2,6 @@
 
 @section('content')
 <section class="body-container-explore">
-    <div class="body-container-explore__menu">
-        <div>
-            <img src="/css/img/loupe.svg" alt="">
-            <input type="text" placeholder="Search">
-        </div>
-        <div>
-            <div></div>
-            <a href="users/{{ Auth::user()->id }}">{{ Auth::user()->name }}</a>
-        </div>
-    </div>
     <div class="body-container__categories">
         <div class="categories__playlist-container">
             <div>

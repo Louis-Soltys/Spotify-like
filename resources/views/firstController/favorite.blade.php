@@ -2,16 +2,6 @@
 
 @section('content')
 {{-- <section class="body-container-explore">
-   <div class="body-container-explore__menu">
-       <div>
-           <img src="./img/loupe.svg" alt="">
-           <input type="text" placeholder="Search">
-       </div>
-       <div>
-           <div></div>
-           <p>John Smith</p>
-       </div>
-   </div>
    <div class="body-container__favorite">
        <div>
            <h2>Mes musiques favorites</h2>
