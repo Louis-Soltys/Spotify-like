@@ -10,13 +10,30 @@ body{
     display: flex;
 }
 
-/* Page connexion et inscription */
+/* Dark and light mode */
+[data-theme='dark'] {
+    --bg-main: #18181D;
+    --bg-secondary: #202026;
+    --color-text-general: #FFFFFF;
+    --color-other-text: #9A9AA6;
+    --color-blue: #5773FF;
+}
 
+[data-theme='light'] {
+    --bg-main: #FFFFFF;
+    --bg-secondary: #F2F2F2;
+    --color-text-general: #18181D;
+    --color-other-text: #9A9AA6;
+    --color-blue: #5773FF;
+}
+
+/* Page connexion et inscription */
     /* Main menu container */
 .main-menu-container{
     height: 100%;
     width: 300px;
-    background-color: #202026;
+    flex-shrink: 0;
+    background-color: var(--bg-secondary);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,7 +53,7 @@ body{
 }
 
 .main-menu-container__logo-title h2{
-    color: white;
+    color: var(--color-text-general);
     font-size: 24px;
     margin: 10px;
 }
@@ -48,7 +65,7 @@ body{
 }
 
 .main-menu-container__menu h3{
-    color: #9A9AA6;
+    color: var(--color-other-text);
 }
 
 .main-menu-container__menu nav > div{
@@ -58,12 +75,12 @@ body{
 }
 
 .main-menu-container__menu a{
-    color: white;
+    color: var(--color-text-general);
     text-decoration: none;
 }
 
 .main-menu-container__menu a:hover{
-    color: #5773FF;
+    color: var(--color-blue);
 }
 
 .earth{
@@ -81,12 +98,12 @@ body{
 }
 
 .main-menu-container__switch-mode > div > p:nth-child(1){
-    color: white;
+    color: var(--color-text-general);
     margin: 10px 25px 0 0;
 }
 
 .main-menu-container__switch-mode > div > p:nth-child(2){
-    color: #5773FF;
+    color: var(--color-blue);
     margin: 10px 0 0 0;
 }
 
@@ -157,12 +174,13 @@ body{
     /* Body container */
 .body-container{
     height: 100%;
-    width: calc(100% - 300px);
-    background-color: #18181D;
+    flex-grow: 1;
+    background-color: var(--bg-main);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0 50px;
 }
 
 .body-container__logo-title{
@@ -176,12 +194,12 @@ body{
 }
 
 .body-container__logo-title > h2{
-    color: white;
+    color: var(--color-text-general);
     margin-left: 10px;
 }
 
 .body-container__form > h3{
-    color: white;
+    color: var(--color-text-general);
 }
 
 .body-container__form{
@@ -199,7 +217,7 @@ body{
 .body-container__form > form > div{
     display: flex;
     align-items: center;
-    border: 1px solid #9A9AA6;
+    border: 1px solid var(--color-other-text);
     border-radius: 5px;
     padding: 10px 15px;
     margin: 10px 0;
@@ -213,19 +231,19 @@ body{
 .body-container__form > form > div > input{
     width: 230px;
     height: 25px;
-    background-color: #18181D;
+    background-color: var(--bg-main);
     border: none;
-    color: white;
+    color: var(--color-text-general);
 }
 
 .body-container__form > form p{
-    color: white;
+    color: var(--color-text-general);
     font-size: 14px;
     margin: 15px;
 }
 
 .body-container__form > form a{
-    color: #5773FF;
+    color: var(--color-blue);
     font-size: 14px;
 }
 
@@ -235,12 +253,12 @@ body{
 }
 
 .body-container__form > form button{
-    background-color: #5773FF;
+    background-color: var(--color-blue);
     color: white;
     margin: 30px;
     padding: 7px 20px;
     border-radius: 20px;
-    border: 1px solid #5773FF;
+    border: 1px solid var(--color-blue);
     font-size: 16px;
 }
 
@@ -248,7 +266,7 @@ body{
 .body-container-explore{
     height: 100%;
     width: 100%;
-    background-color: #18181D;
+    background-color: var(--bg-main);
 }
 
 .body-container-explore__menu{
@@ -259,26 +277,34 @@ body{
     margin: 30px 0;
 }
 
-.body-container-explore__menu > div:nth-child(1), .body-container-explore__menu > div:nth-child(2){
+.body-container-explore__menu > form, .body-container-explore__menu > div:nth-child(2){
     display: flex;
     align-items: center;
-    border: 1px solid #9A9AA6;
+    border: 1px solid var(--color-other-text);
     border-radius: 5px;
     padding: 7px 15px;
     margin: 10px 40px;
 }
 
-.body-container-explore__menu > div:nth-child(1) img{
-    width: 25px;
+.body-container-explore__menu > form img{
+    width: 20px;
     margin-right: 10px;
+    margin-top: 2px;
 }
 
-.body-container-explore__menu > div:nth-child(1) input{
-    width: 220px;
-    height: 20px;
-    background-color: #18181D;
+.body-container-explore__menu > form button{
+    background:none;
     border: none;
-    color: white;
+    cursor: pointer;
+}
+
+.body-container-explore__menu > form > input{
+    width: 150px;
+    height: 25px;
+    font-size: 16px;
+    background-color: var(--bg-main);
+    border: none;
+    color: var(--color-text-general);
 }
 
 .body-container-explore__menu > div:nth-child(2) div{
@@ -291,9 +317,9 @@ body{
 }
 
 .body-container-explore__menu > div:nth-child(2) p, .body-container-explore__menu > div:nth-child(2) a{
-    background-color: #18181D;
+    background-color: var(--bg-main);
     border: none;
-    color: white;
+    color: var(--color-text-general);
     margin: 0 25px 0 0;
     text-decoration: none;
 }
@@ -306,11 +332,11 @@ body{
 }
 
 .body-container__explore > h2{
-    color: white;
+    color: var(--color-text-general);
     margin: 0;
 }
 .body-container__explore > span{
-    color: #9A9AA6;
+    color: var(--color-other-text);
     margin-bottom: 30px;
 }
 
@@ -325,8 +351,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    color: white;
-    width: 500px;
+    color: var(--color-text-general);
 }
 
 .explore__news > div{
@@ -338,11 +363,11 @@ body{
 }
 
 .explore__top-chart{
-    color: white;
+    color: var(--color-text-general);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    width: 500px;
+    margin-left: 40px;
 }
 
 .top-chart__list{
@@ -353,7 +378,7 @@ body{
 }
 
 .top-chart__list a{
-    color: white;
+    color: var(--color-text-general);
     text-decoration: none;
 }
 
@@ -373,7 +398,7 @@ body{
 }
 
 .top-chart__list > div > div:nth-child(1) > p{
-    color: #9A9AA6;
+    color: var(--color-other-text);
     margin: 0 10px 0 0;
 }
 
@@ -397,7 +422,7 @@ body{
 }
 
 .top-chart__list > div > div:nth-child(1) span a{
-    color: #9A9AA6;
+    color: var(--color-other-text);
 }
 
 .top-chart__list > div > div:nth-child(2){
@@ -413,7 +438,7 @@ body{
     justify-content: center;
     height: 20px;
     width: 20px;
-    border: 1px solid #9A9AA6;
+    border: 1px solid var(--color-other-text);
     border-radius: 5px;
 }
 
@@ -430,9 +455,10 @@ body{
     align-items: center;
     justify-content: space-evenly;
     width: calc(100% - 300px);
-    background-color: #5773FF;
+    background-color: var(--color-blue);
     color: white;
-    position: absolute;
+    position: fixed;
+    right: 0;
     bottom: 0;
 }
 
@@ -495,7 +521,7 @@ body{
 
 .buffered {
     position: relative;
-    background-color: #9A9AA6;
+    background-color: var(--color-other-text);
     width: 300px;
     border-radius: 20px;
 }
@@ -503,7 +529,7 @@ body{
 #buffered-amount {
     display: block;
     height: 100%;
-    background-color: #9A9AA6;
+    background-color: var(--color-other-text);
     width: 0;
     border-radius: 20px;
 }
@@ -512,7 +538,7 @@ body{
     margin-top: -10px;
     height: 10px;
     position: relative;
-    background-color: #9A9AA6;
+    background-color: var(--color-other-text);
     width: 300px;
     border-radius: 20px;
 }
@@ -558,7 +584,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: white;
+    color: var(--color-text-general);
 }
 
 .profil-followers_container > div:nth-child(1)> div > span:nth-child(1){
@@ -575,13 +601,13 @@ body{
 
 .profil-followers_container > div:nth-child(2) p{
     margin: 0 0 10px 0;
-    color: #9A9AA6;
+    color: var(--color-other-text);
 }
 
 .profil-followers_container > div:nth-child(2) a{
     padding: 10px 45px;
-    background-color: #5773FF;
-    color: white;
+    background-color: var(--color-blue);
+    color: var(--color-text-general);
     border-radius: 20px;
     text-decoration: none;
 }
@@ -589,7 +615,7 @@ body{
 .profil-music-informations{
     display: flex;
     justify-content: space-around;
-    color: white;
+    color: var(--color-text-general);
 }
 
 .profil-informations_container{
@@ -620,10 +646,10 @@ body{
     z-index: 0;
     display: inline-block;
     width: 100%;
-    background-color: #18181D;
-    border: 1px solid #9A9AA6;
+    background-color: var(--bg-main);
+    border: 1px solid var(--color-other-text);
     cursor: pointer;
-    color: #fff;
+    color: var(--color-text-general);
     padding: 7px 0;
     text-transform:uppercase;
     font-size: 11px;
@@ -649,11 +675,11 @@ body{
 .profil-informations_container > form input:not(.input-file_content){
     width: 140px;
     height: 15px;
-    background-color: #18181D;
-    border: 1px solid #9A9AA6;
+    background-color: var(--bg-main);
+    border: 1px solid var(--color-other-text);
     border-radius: 7px;
     padding: 7px 10px;
-    color: white;
+    color: var(--color-text-general);
     margin: 5px 0;
 }
 
@@ -666,11 +692,11 @@ body{
 }
 
 .profil-informations_container > form button{
-    background-color: #5773FF;
-    color: white;
+    background-color: var(--color-blue);
+    color: var(--color-text-general);
     padding: 7px 20px;
     border-radius: 7px;
-    border: 1px solid #5773FF;
+    border: 1px solid var(--color-blue);
     margin-top: 10px;
 }
 
@@ -695,7 +721,7 @@ body{
 }
 
 .profil-import-music_container > div > div:nth-child(1)> p{
-    color: #9A9AA6;
+    color: var(--color-other-text);
     margin: 0 10px 0 0;
 }
 
@@ -704,7 +730,7 @@ body{
     font-size: 16px;
 }
 .profil-import-music_container > div > div:nth-child(1) h4 a{
-    color: white;
+    color: var(--color-text-general);
     text-decoration: none;
 }
 .profil-import-music_container > div > div:nth-child(1) span{
@@ -725,7 +751,7 @@ body{
     justify-content: center;
     height: 20px;
     width: 20px;
-    border: 1px solid #9A9AA6;
+    border: 1px solid var(--color-other-text);
     border-radius: 5px;
 }
 
@@ -739,7 +765,7 @@ body{
 
 /* Categories page */
 .body-container__categories{
-    color: white;
+    color: var(--color-text-general);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -764,7 +790,6 @@ body{
 }
 
 .categories__playlist-container > div:nth-child(2), .categories__category-container > div:nth-child(2){
-    width: 700px;
     display: flex;
     align-items: center;
     overflow: scroll;
@@ -792,7 +817,7 @@ body{
 }
 
 .categories__category-container > div:nth-child(2) > div a{
-    color: white;
+    color: var(--color-text-general);
     text-decoration: none;
 }
 
@@ -804,7 +829,7 @@ body{
 
 /* Page favorite */
 .body-container__favorite{
-    color: white;
+    color: var(--color-text-general);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -844,7 +869,7 @@ body{
 }
 
 .favorite-container > div > div:nth-child(1) > p{
-    color: #9A9AA6;
+    color: var(--color-other-text);
     margin: 0;
 }
 
@@ -857,14 +882,14 @@ body{
 }
 
 .favorite-container > div > div > div h3 a{
-    color: white;
+    color: var(--color-text-general);
     font-size: 16px;
     text-transform: capitalize;
     text-decoration: none;
 }
 
 .favorite-container > div > div:nth-child(1) > div p a{
-    color: #9A9A9A;
+    color: var(--color-other-text);
     font-size: 13px;
     text-transform: capitalize;
     text-decoration: none;
@@ -883,7 +908,7 @@ body{
     justify-content: center;
     height: 20px;
     width: 20px;
-    border: 1px solid #9A9AA6;
+    border: 1px solid var(--color-other-text);
     border-radius: 5px;
 }
 
@@ -897,7 +922,7 @@ body{
 
 /* Page abonnée */
 .body-container__abonne{
-    color: white;
+    color: var(--color-text-general);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -943,24 +968,24 @@ body{
 .abonne-container > div button{
     width: 140px;
     height: 30px;
-    background-color: #18181D;
-    border: 1px solid #9A9AA6;
+    background-color: var(--bg-main);
+    border: 1px solid var(--color-other-text);
     border-radius: 7px;
     padding: 7px 10px;
-    color: white;
+    color: var(--color-text-general);
     margin: 5px 0;
     transition: 0.4s ease;
     cursor: pointer;
 }
 
 .abonne-container > div button:hover{
-    background-color: #9A9AA6;
-    color: black;
+    background-color: var(--color-other-text);
+    color: var(--bg-main);
 }
 
 /* Page create playlist */
 .body-container__playlist{
-    color: white;
+    color: var(--color-text-general);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -991,12 +1016,12 @@ body{
 .playlist__create-playlist > div:nth-child(1) > input{
     display: flex;
     align-items: center;
-    border: 1px solid #9A9AA6;
+    border: 1px solid var(--color-other-text);
     border-radius: 5px;
     padding: 10px 15px;
     margin: 10px 0;
-    background-color: #202026;
-    color: white;
+    background-color: var(--bg-main);
+    color: var(--color-text-general);
 }
 
 .create-playlist__container{
@@ -1056,16 +1081,16 @@ body{
 
 .playlist__create-playlist > form > button{
     margin-top: 30px;
-    border: 1px solid #5773FF;
+    border: 1px solid var(--color-blue);
     border-radius: 20px;
-    background-color: #5773FF;
-    color: white;
+    background-color: var(--color-blue);
+    color: var(--color-text-general);
     padding: 10px 30px;
 }
 
 /* SongByGenre page */
 .categorie__genre-music{
-    color: white;
+    color: var(--color-text-general);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -1073,7 +1098,7 @@ body{
 }
 
 .categorie__genre-music > h2{
-    color: white;
+    color: var(--color-text-general);
     text-transform: uppercase;
     text-decoration: underline;
 }
@@ -1111,7 +1136,7 @@ body{
 
 .genre-music__list-music > div > div:nth-child(1) > p{
     margin: 0 10px 0 0;
-    color: #9A9AA6;
+    color: var(--color-other-text);
 }
 
 .genre-music__list-music > div > div:nth-child(1) > div h3{
@@ -1121,12 +1146,12 @@ body{
 .genre-music__list-music > div > div:nth-child(1) > div > h3 a{
     margin: 0;
     text-decoration: none;
-    color: white;
+    color: var(--color-text-general);
     font-size: 17px;
 }
 
 .genre-music__list-music > div > div:nth-child(1) > div > span a{
-    color: #9A9AA6;
+    color: var(--color-other-text);
     font-size: 13px;
     text-decoration: none;
 }
@@ -1142,3 +1167,30 @@ body{
     width: 30px;
 }
 
+/* Responsive */
+@media screen and (max-width: 1200px) {
+    .body-container__explore > div{
+        align-items: center;
+    }
+    .explore__list-and-news{
+        flex-direction: column;
+    }
+    .body-container{
+        overflow: scroll;
+    }
+    .explore__top-chart{
+        margin: 30px 0 150px 0;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .body-container__explore > div{
+        align-items: center;
+    }
+    .progress, .buffered{
+        display: none;
+    }
+    #title, #artist, #currentTime{
+        display: none;
+    }
+}

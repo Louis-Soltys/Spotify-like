@@ -13,7 +13,7 @@
   <link href="/css/toastr.css" rel="stylesheet">
 </head>
 
-<body>
+<body data-theme="light">
     <section class="main-menu-container">
         <div class="main-menu-container__logo-title">
             <img src="/css/img/logo.png" alt="">
@@ -95,24 +95,8 @@
             </div>
         </div>
     </section>
-        
-     <section class="body-container">
-         @auth
-        <div class="body-container-explore__menu">
-            <div>
-                <img src="/css/img/loupe.svg" alt="">
-                <input type="text" placeholder="Search">
-            </div>
-            <div>
-                <div></div>
-                <a href="users/{{ Auth::user()->id }}">{{ Auth::user()->name }}</a>
-            </div>
-        </div>
-        @endauth
-         <div id='pjax-container'>
-            @yield('content')
-            @auth
-         </div>
+
+    @auth
         <div class="body-container__play-music">
             <div>
                 <img src="/css/img/fast-music.svg" id='previous' alt="">
@@ -137,12 +121,29 @@
             <a href="#" id='like-btn'><img src="/css/img/like.svg" alt="">like</a>
             <input type='checkbox' name='checkbox' id='random'>
         </div>
+    @endauth
+    @if(Session::has("toastr"))
+        <script>
+            toastr.{{Session::get('toastr')['status']}}('{{Session::get("toastr")["message"]}}')
+        </script>
+    @endif
+
+     <section class="body-container">
+        @auth
+        <div class="body-container-explore__menu">
+            <form method="get" action="/search" id='search'>
+                <input type="text" name="search" placeholder="Search">
+                <button type="submit" name='submit-search' id='btn-search'><img src="/css/img/loupe.svg" alt=""></button>
+            </form>
+            <div>
+                <div></div>
+                <a href="users/{{ Auth::user()->id }}">{{ Auth::user()->name }}</a>
+            </div>
+        </div>
         @endauth
-        @if(Session::has("toastr"))
-            <script>
-                toastr.{{Session::get('toastr')['status']}}('{{Session::get("toastr")["message"]}}')
-            </script>
-        @endif
+        <div id='pjax-container'>
+            @yield('content')
+        </div>
     </section>
 </body>
 
