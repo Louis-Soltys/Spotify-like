@@ -128,7 +128,7 @@ $(document).ready(function() {
       document.getElementById("next").addEventListener("click", function() {
         play = true;
         current++
-        if(current == allsongs.length)
+        if(current == allsongs.length || current < 0)
             current = 0
         audio.src = $("a.song[data-nb='"+current+"']").attr("data-file")
         document.getElementById('play').src = '/css/img/pause.png';
