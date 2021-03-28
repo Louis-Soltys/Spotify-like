@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Song;
 use App\Models\User;
+use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Response;
@@ -13,11 +14,9 @@ class firstController extends Controller
 {
     function index(){
         $s = Song::all();
-
         return view("firstController.index", ["song" => $s]);
 
     }
-
 
     function favorite(){
         $s = Song::all();
@@ -28,14 +27,26 @@ class firstController extends Controller
     function createplaylist(){
         $s = Song::all();
 
-        return view("firstController.createplaylist", ["song" => $s]);
+        return view("firstController.create-playlist", ["song" => $s]);
     }
 
     function article($id){
 
-    return view("firstController.article", ["id" => $id]);
+        return view("firstController.article", ["id" => $id]);
 
     }
+
+    function categories(){
+        $s = Song::all();
+
+        return view("firstController.categories", ["song" => $s]);
+    }
+
+    function abonnes(){
+        return view("firstController.abonnes");
+    }
+
+    
 
     public function search($search){
         $users = User::whereRaw("name LIKE CONCAT(?, '%')", [$search])->orderBy('id', 'desc')->get();
@@ -87,9 +98,9 @@ class firstController extends Controller
 
 
     public function user($id){
-
+        $s = Song::all();
         $user = User::findOrFail($id);
-        return view("firstController.user", ["user" => $user]);
+        return view("firstController.user", ["user" => $user],["song" => $s]);
 
     }
 
@@ -103,6 +114,11 @@ class firstController extends Controller
         return back();
     }
 
-    
+    function genres(Request $genre){
+        $s = Song::all();
+        $genre = $genre->genre;
+        return view("firstController.genres", ["song" => $s, "genre" => $genre]);
+
+    }
 
 }

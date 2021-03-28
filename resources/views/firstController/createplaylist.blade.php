@@ -22,9 +22,4 @@
         <button type="submit">Terminer</button>
     </form>
 
-
-    <ul>
-        
-    </ul>
-
 @endsection

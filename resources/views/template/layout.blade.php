@@ -25,19 +25,19 @@
                 <nav>
                     <div>
                         <img class="earth" src="/css/img/earth.svg" alt="">
-                        <a href="/index.blade.php">Explore</a>
+                        <a href="/">Accueil</a>
                     </div>
                     <div>
                         <img class="earth" src="/css/img/earth.svg" alt="">
-                        <a href="">Discover</a>
+                        <a href="/categories">Catégories</a>
                     </div>
                     <div>
                         <img class="earth" src="/css/img/earth.svg" alt="">
-                        <a href="">Favoris</a>
+                        <a href="/favorite">Favoris</a>
                     </div>
                     <div>
                         <img class="earth" src="/css/img/earth.svg" alt="">
-                        <a href="">Abonnés</a>
+                        <a href="/abonnes">Abonnés</a>
                     </div>
                 </nav>
             </div>
@@ -46,11 +46,7 @@
                 <nav>
                     <div>
                         <img class="earth" src="/css/img/earth.svg" alt="">
-                        <a href="">Create playlist</a>
-                    </div>
-                    <div>
-                        <img class="earth" src="/css/img/earth.svg" alt="">
-                        <a href="">Relax</a>
+                        <a href="/create-playlist">Create playlist</a>
                     </div>
                 </nav>
             </div>
@@ -72,7 +68,7 @@
                     <nav>
                         <div>
                             <img class="earth" src="/css/img/earth.svg" alt="">
-                            <a href="users/{{Auth::user()->id}}">{{ Auth::user()->name }}</a>
+                            <a href="/users/{{Auth::user()->id}}">{{ Auth::user()->name }}</a>
                         </div>
     
                         <div>
@@ -100,10 +96,22 @@
         </div>
     </section>
         
-     <section class="body-container"> {{-- ajouter une div contenant l'id "pjax-container" --}}
+     <section class="body-container">
+         @auth
+        <div class="body-container-explore__menu">
+            <div>
+                <img src="/css/img/loupe.svg" alt="">
+                <input type="text" placeholder="Search">
+            </div>
+            <div>
+                <div></div>
+                <a href="users/{{ Auth::user()->id }}">{{ Auth::user()->name }}</a>
+            </div>
+        </div>
+        @endauth
          <div id='pjax-container'>
-        @yield('content')
-        @auth
+            @yield('content')
+            @auth
          </div>
         <div class="body-container__play-music">
             <div>
@@ -112,22 +120,21 @@
                 <img src="/css/img/fast-music.svg" id='next' alt="">
             </div>
             <div>
-                <p id='title'></p>
-                <p id='artist'></p>
-                <audio id="audio"></audio>
-                <p id='duration'></p>
-                <p id='currentTime'></p>
-                volume
-                <input type="range" id="vol" max="1" min="0" step="0.01" onchange="changevolume(this.value)" />
+                <div>
+                    <p id='title'></p>
+                    <p id='artist'></p>
+                    <audio id="audio"></audio>
+                    <p id='currentTime'></p>
+                </div>
+                
                 <div class="buffered">
                     <span id="buffered-amount"></span>
-                  </div>
-                  <div class="progress">
-                    <span id="progress-amount"></span>
-                  </div>
                 </div>
+                <div class="progress">
+                    <span id="progress-amount"></span>
+                </div>
+            </div>
             <a href="#" id='like-btn'><img src="/css/img/like.svg" alt="">like</a>
-            <label>Aléatoire (à enlever quand on aura le logo) ---></label>
             <input type='checkbox' name='checkbox' id='random'>
         </div>
         @endauth
