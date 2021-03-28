@@ -2,16 +2,6 @@
 
 @section('content')
 <section class="body-container-explore">
-    <div class="body-container-explore__menu">
-        <div>
-            <img src="/css/img/loupe.svg" alt="">
-            <input type="text" placeholder="Search">
-        </div>
-        <div>
-            <div></div>
-            <a href="users/{{ Auth::user()->id }}">{{ Auth::user()->name }}</a>
-        </div>
-    </div>
     <div class="body-container__explore">
         <div class="profil-img-follower">
             <img src="/css/img/photo-profil.jpg" alt="">
@@ -22,7 +12,7 @@
                         <span>Musiques</span>
                     </div>
                     <div>
-                        <span>{{$user->TheyLikeMe()->count()}} </span>
+                        <span>{{$user->TheyLikeMe()->count()}}</span>
                         <span>Abonnés</span>
                     </div>
                     <div>
@@ -63,72 +53,42 @@
                     @endif
                 @endauth
                 <div class="profil-import-music_container">
-                    <div>
-                        <div>
-                            <span>01</span>
-                            <div class="top-chart__list-img-album"></div>
-                            <div>
-                                <span>WAR</span>
-                                <span>Sum41</span>
-                            </div>
-                        </div>
-                        <div>
-                            <p>3:40</p>
-                            <div><img src="/css/img/play.svg" alt=""></div>
-                            <img src="/css/img/like.svg" alt="">
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <span>02</span>
-                            <div class="top-chart__list-img-album"></div>
-                            <div>
-                                <span>WAR</span>
-                                <span>Sum41</span>
-                            </div>
-                        </div>
-                        <div>
-                            <p>3:40</p>
-                            <div><img src="/css/img/play.svg" alt=""></div>
-                            <img src="/css/img/like.svg" alt="">
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <span>03</span>
-                            <div class="top-chart__list-img-album"></div>
-                            <div>
-                                <span>WAR</span>
-                                <span>Sum41</span>
-                            </div>
-                        </div>
-                        <div>
-                            <p>3:40</p>
-                            <div><img src="/css/img/play.svg" alt=""></div>
-                            <img src="/css/img/like.svg" alt="">
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <span>04</span>
-                            <div class="top-chart__list-img-album"></div>
-                            <div>
-                                <span>WAR</span>
-                                <span>Sum41</span>
-                            </div>
-                        </div>
-                        <div>
-                            <p>3:40</p>
-                            <div><img src="/css/img/play.svg" alt=""></div>
-                            <img src="/css/img/like.svg" alt="">
-                        </div>
-                    </div>
+                    @auth
+                        @php
+                            $nb = 0;
+                        @endphp
+                        @foreach($song as $s)
+                            @if($user->id == $s->user->id )
+                                <div>
+                                    <div>
+                                        <p>{{$s->id}}</p>
+                                        <div class="top-chart__list-img-album"></div>
+                                        <div>
+                                            <h4><a href ='#' data-file="/render/{{ $s->id }}{{substr($s->url, 10)}}" data-nb='{{ $nb++}}' data-title='{{ $s->titre }}' data-artist='{{ $s->user->name }}' data-like='{{ $s->id }}' class="song">{{ $s->titre }}</a></h4>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p>3:40</p>
+                                        <img src="/css/img/like.svg" alt="">
+                                        @auth
+                                            @if(Auth::user()->ILike->contains($s->id))
+                                                <a href="/changeSongLike/{{$s->id}}">Dislike</a>
+                                            @else
+                                                <a href="/changeSongLike/{{$s->id}}">Like</a>
+                                            @endif
+                                        @endauth
+                                        @guest
+                                            <a href="/login">Like</a></li>
+                                        @endguest
+                                    </div>
+                                </div>
+                            @endif   
+                        @endforeach
+                    @endauth
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-
-    
 @endsection

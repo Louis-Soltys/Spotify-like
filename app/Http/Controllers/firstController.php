@@ -14,32 +14,29 @@ class firstController extends Controller
 {
     function index(){
         $s = Song::all();
-
         return view("firstController.index", ["song" => $s]);
-
     }
 
     function favorite(){
         $s = Song::all();
-
         return view("firstController.favorite", ["song" => $s]);
     }
 
     function article($id){
-
         return view("firstController.article", ["id" => $id]);
 
     }
 
     function categories(){
         $s = Song::all();
-
         return view("firstController.categories", ["song" => $s]);
     }
 
     function abonnes(){
+        $s = Song::all();
         return view("firstController.abonnes");
     }
+
     function createPlaylist(){
         return view("firstController.create-playlist");
     }
@@ -56,12 +53,10 @@ class firstController extends Controller
     }
 
     public function store(Request $request){
-        
         $request->validate([
             'titre' => 'required|min:4|max:255',
             'song' => 'required|file|mimes:mp3,ogg',
         ]);
-
 
         $song = new Song();
         $name= $request->file('song')->hashName();
@@ -94,9 +89,9 @@ class firstController extends Controller
 
 
     public function user($id){
-
+        $s = Song::all();
         $user = User::findOrFail($id);
-        return view("firstController.user", ["user" => $user]);
+        return view("firstController.user", ["user" => $user], ["song" => $s]);
 
     }
 
@@ -114,7 +109,6 @@ class firstController extends Controller
         $s = Song::all();
         $genre = $genre->genre;
         return view("firstController.genres", ["song" => $s, "genre" => $genre]);
-
     }
 
 }

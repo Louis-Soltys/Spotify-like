@@ -2,17 +2,6 @@
 
 @section('content')
 <section class="body-container-explore">
-    <div class="body-container-explore__menu">
-        <div>
-            <img src="/css/img/loupe.svg" alt="">
-            <input type="text" placeholder="Search">
-        </div>
-        <div>
-            <div></div>
-            <a href="users/{{ Auth::user()->id }}">{{ Auth::user()->name }}</a>
-        </div>
-    </div>
-    @include("partials._songs")
     <div class="body-container__explore">
         <h2>Bienvenue sur Audify</h2>
         <span>Explore the sound</span>
@@ -24,81 +13,35 @@
             <div class="explore__top-chart">
                 <h3>Top charts</h3>
                 <div class="top-chart__list">
-                    <div>
+                    @php
+                        $nb = 0;
+                    @endphp
+                    @foreach($song as $s)
                         <div>
-                            <p>01</p>
-                            <div class="top-chart__list-img-album"></div>
                             <div>
-                                <h4>War</h4>
-                                <span>Sum41</span>
+                                <p>{{$s->id}}</p>
+                                <div class="top-chart__list-img-album"></div>
+                                <div>
+                                    <h4><a href ='#' data-file="/render/{{ $s->id }}{{substr($s->url, 10)}}" data-nb='{{ $nb++}}' data-title='{{ $s->titre }}' data-artist='{{ $s->user->name }}' data-like='{{ $s->id }}' class="song">{{ $s->titre }}</a></h4>
+                                    <span><a href="/users/{{$s->user->id}}" class='user'> {{ $s->user->name }}</a></span>
+                                </div>
+                            </div>
+                            <div>
+                                <p>3:40</p>
+                                <img src="/css/img/like.svg" alt="">
+                                @auth
+                                    @if(Auth::user()->ILike->contains($s->id))
+                                        <a href="/changeSongLike/{{$s->id}}">Dislike</a>
+                                    @else
+                                        <a href="/changeSongLike/{{$s->id}}">Like</a>
+                                    @endif
+                                @endauth
+                                @guest
+                                    <a href="/login">Like</a></li>
+                                @endguest
                             </div>
                         </div>
-                        <div>
-                            <p>3:40</p>
-                            <div><img src="/css/img/play.svg" alt=""></div>
-                            <img src="/css/img/like.svg" alt="">
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <p>01</p>
-                            <div class="top-chart__list-img-album"></div>
-                            <div>
-                                <h4>War</h4>
-                                <span>Sum41</span>
-                            </div>
-                        </div>
-                        <div>
-                            <p>3:40</p>
-                            <div><img src="/css/img/play.svg" alt=""></div>
-                            <img src="/css/img/like.svg" alt="">
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <p>01</p>
-                            <div class="top-chart__list-img-album"></div>
-                            <div>
-                                <h4>War</h4>
-                                <span>Sum41</span>
-                            </div>
-                        </div>
-                        <div>
-                            <p>3:40</p>
-                            <div><img src="/css/img/play.svg" alt=""></div>
-                            <img src="/css/img/like.svg" alt="">
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <p>01</p>
-                            <div class="top-chart__list-img-album"></div>
-                            <div>
-                                <h4>War</h4>
-                                <span>Sum41</span>
-                            </div>
-                        </div>
-                        <div>
-                            <p>3:40</p>
-                            <div><img src="/css/img/play.svg" alt=""></div>
-                            <img src="/css/img/like.svg" alt="">
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <p>01</p>
-                            <div class="top-chart__list-img-album"></div>
-                            <div>
-                                <h4>War</h4>
-                                <span>Sum41</span>
-                            </div>
-                        </div>
-                        <div>
-                            <p>3:40</p>
-                            <div><img src="/css/img/play.svg" alt=""></div>
-                            <img src="/css/img/like.svg" alt="">
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

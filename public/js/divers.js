@@ -171,3 +171,13 @@ $(document).ready(function() {
       var audioobject = document.getElementsByTagName("audio")[0];
       audioobject.volume = amount;
     }
+
+const checkboxDarkMode = document.querySelector('.switch__checkbox');
+
+checkboxDarkMode.addEventListener('change', function() {
+  if(this.checked) {
+    document.body.dataset.theme = 'dark'
+  } else {
+    document.body.dataset.theme = 'light'
+  }
+})

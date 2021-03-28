@@ -3,7 +3,6 @@
         @csrf
 
         <input type='text' name='titre' placeholder="Titre de la musique" value="{{old('title')}}" required/>
-        <input type="text" placeholder="Nom de l'artiste" required/>
         <div class="profil-informations_input-file">
           <span class="input-file">Upload</span>
           <input type='file' class="input-file_content" name='song' placeholder="song" required/>
