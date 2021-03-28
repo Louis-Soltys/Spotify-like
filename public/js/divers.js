@@ -171,3 +171,4 @@ $(document).ready(function() {
       var audioobject = document.getElementsByTagName("audio")[0];
       audioobject.volume = amount;
     }
+
