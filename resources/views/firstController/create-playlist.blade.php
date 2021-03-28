@@ -7,18 +7,23 @@
 
         </div>
         <div class="playlist__create-playlist">
+        <form method='post' action="/playlist" enctype="multipart/form-data" data-pjax>
             <div>
                 <h2>Créer ta playlist d'après tes favoris</h2>
-                <input type="text" placeholder="Nom de ta playlist">
+                <input type="text" name="titre" placeholder="Nom de ta playlist">
             </div>
             <div class="create-playlist__container">
+            @php
+            $nb = 1;
+            @endphp
+            @foreach($song as $s)
                 <div>
                     <div>
-                        <p>01</p>
+                        <p>{{$nb++}}</p>
                         <img src="/css/img/Order-in-decline.jpg" alt="">
                         <div>
-                            <h4>War</h4>
-                            <span>Sum41</span>
+                            <h4><a href ='#' data-file="/render/{{ $s->id }}{{substr($s->url, 10)}}" data-nb='{{ $nb+0.5}}' data-title='{{ $s->titre }}' data-artist='{{ $s->user->name }}' data-like='{{ $s->id }}' class="song">{{ $s->titre }}</a></h4>
+                            <span><a href="/users/{{$s->user->id}}" class='user'> {{ $s->user->name }}</a></span>
                         </div>
                     </div>
                     <div>
@@ -26,24 +31,11 @@
                         <input type="checkbox">
                     </div>
                 </div>
-                <div>
-                    <div>
-                        <p>02</p>
-                        <img src="/css/img/Order-in-decline.jpg" alt="">
-                        <div>
-                            <h4>War</h4>
-                            <span>Sum41</span>
-                        </div>
-                    </div>
-                    <div>
-                        <img src="/css/img/like.svg" alt="">
-                        <input type="checkbox">
-                    </div>
-                </div>
-            </div>
-            <form action="">
-                <button type="submit">Valider</button>
+
+            @endforeach
+            <button type="submit">Valider</button>
             </form>
+               
         </div>
     </div>
 </section>

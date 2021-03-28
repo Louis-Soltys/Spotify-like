@@ -782,12 +782,18 @@ body{
 
 .categories__category-container > div:nth-child(2) > div{
     height: 150px;
-    flex: 1 0 150px;
+    flex: 1 0 120px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 10px;
     overflow: hidden;
+    text-align: center;
+}
+
+.categories__category-container > div:nth-child(2) > div a{
+    color: white;
+    text-decoration: none;
 }
 
 .categories__playlist-container > div:nth-child(2) > div img, .categories__category-container > div:nth-child(2) > div img{
@@ -1135,3 +1141,4 @@ body{
 .genre-music__list-music > div > div:nth-child(2) img{
     width: 30px;
 }
+
