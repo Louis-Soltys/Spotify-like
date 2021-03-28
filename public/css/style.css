@@ -277,7 +277,7 @@ body{
     margin: 30px 0;
 }
 
-.body-container-explore__menu > div:nth-child(1), .body-container-explore__menu > div:nth-child(2){
+.body-container-explore__menu > form, .body-container-explore__menu > div:nth-child(2){
     display: flex;
     align-items: center;
     border: 1px solid var(--color-other-text);
@@ -286,14 +286,22 @@ body{
     margin: 10px 40px;
 }
 
-.body-container-explore__menu > div:nth-child(1) img{
-    width: 25px;
+.body-container-explore__menu > form img{
+    width: 20px;
     margin-right: 10px;
+    margin-top: 2px;
 }
 
-.body-container-explore__menu > div:nth-child(1) input{
-    width: 220px;
-    height: 20px;
+.body-container-explore__menu > form button{
+    background:none;
+    border: none;
+    cursor: pointer;
+}
+
+.body-container-explore__menu > form > input{
+    width: 150px;
+    height: 25px;
+    font-size: 16px;
     background-color: var(--bg-main);
     border: none;
     color: var(--color-text-general);
@@ -1164,17 +1172,20 @@ body{
     .body-container__explore > div{
         align-items: center;
     }
-    .explore__news{
-        display: none;
+    .explore__list-and-news{
+        flex-direction: column;
+    }
+    .body-container{
+        overflow: scroll;
+    }
+    .explore__top-chart{
+        margin: 30px 0 150px 0;
     }
 }
 
 @media screen and (max-width: 950px) {
     .body-container__explore > div{
         align-items: center;
-    }
-    .explore__news{
-        display: none;
     }
     .progress, .buffered{
         display: none;

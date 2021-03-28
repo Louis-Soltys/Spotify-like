@@ -13,7 +13,7 @@
   <link href="/css/toastr.css" rel="stylesheet">
 </head>
 
-<body data-theme="">
+<body data-theme="light">
     <section class="main-menu-container">
         <div class="main-menu-container__logo-title">
             <img src="/css/img/logo.png" alt="">
@@ -131,10 +131,10 @@
      <section class="body-container">
         @auth
         <div class="body-container-explore__menu">
-            <div>
-                <input type="text" placeholder="Search">
-                <img src="/css/img/loupe.svg" alt="">
-            </div>
+            <form method="get" action="/search" id='search'>
+                <input type="text" name="search" placeholder="Search">
+                <button type="submit" name='submit-search' id='btn-search'><img src="/css/img/loupe.svg" alt=""></button>
+            </form>
             <div>
                 <div></div>
                 <a href="users/{{ Auth::user()->id }}">{{ Auth::user()->name }}</a>
