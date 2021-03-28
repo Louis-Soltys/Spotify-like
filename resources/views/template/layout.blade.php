@@ -13,7 +13,7 @@
   <link href="/css/toastr.css" rel="stylesheet">
 </head>
 
-<body data-theme="dark">
+<body data-theme="">
     <section class="main-menu-container">
         <div class="main-menu-container__logo-title">
             <img src="/css/img/logo.png" alt="">
@@ -129,11 +129,11 @@
     @endif
 
      <section class="body-container">
-         @auth
+        @auth
         <div class="body-container-explore__menu">
             <div>
-                <img src="/css/img/loupe.svg" alt="">
                 <input type="text" placeholder="Search">
+                <img src="/css/img/loupe.svg" alt="">
             </div>
             <div>
                 <div></div>

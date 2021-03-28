@@ -5,7 +5,7 @@
     <div class="body-container__explore">
         <h2>Bienvenue sur Audify</h2>
         <span>Explore the sound</span>
-        <div>
+        <div class="explore__list-and-news">
             <div class="explore__news">
                 <h3>News</h3>
                 <div></div>
