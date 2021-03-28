@@ -25,6 +25,12 @@ class firstController extends Controller
         return view("firstController.favorite", ["song" => $s]);
     }
 
+    function createplaylist(){
+        $s = Song::all();
+
+        return view("firstController.createplaylist", ["song" => $s]);
+    }
+
     function article($id){
 
     return view("firstController.article", ["id" => $id]);
