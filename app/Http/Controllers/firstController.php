@@ -94,7 +94,7 @@ class firstController extends Controller
             $contenu->song_id = $val;
             $contenu->save();
         }
-        return back();
+        return back()->with('toastr', ["status"=>"success", "message"=>"Playlist bien ajoutée !"]);
     }
 
 
@@ -135,6 +135,12 @@ class firstController extends Controller
         $s = Song::all();
         $genre = $genre->genre;
         return view("firstController.genres", ["song" => $s, "genre" => $genre]);
+    }
+
+    function playlist(Request $playlist){
+        $p = Playlist::all();
+        $playlist = $playlist->id;
+        return view("firstController.playlist", ["p" => $p, "playlist" => $id]);
     }
 
 }

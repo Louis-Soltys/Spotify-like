@@ -30,7 +30,7 @@ Route::get("/changeSongLike/{id}", [firstController::class, "changeSongLike"])->
 Route::get("/render/{id}/{file}", [firstController::class, "render"]);
 Route::post('/playlist', [firstController::class, "storeplaylist"])->middleware('auth');
 Route::get('/genre/{genre}', [firstController::class, "genres"])->middleware('auth');
-
+Route::get('/playlists/{playlist}', [firstController::class, "playlist"])->middleware('auth');
 
 
 Auth::routes();
