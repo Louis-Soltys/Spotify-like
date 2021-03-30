@@ -78,11 +78,12 @@ class firstController extends Controller
 
     public function storeplaylist(Request $request){
         
-
+        
         $playlist = new Playlist();
         $playlist->titre = $request->input('titre');
         $playlist->user_id = Auth::id();
         $playlist->save();
+        dd($playlist);
 
         return back();
     }
