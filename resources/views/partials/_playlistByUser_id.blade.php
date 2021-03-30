@@ -3,13 +3,11 @@ $nb = 0;
 @endphp
 
 <section class="categorie__genre-music">
-   <h2>{{$genre}}</h2>
    <div class="genre-music__list-music">
-      @foreach($p as $pp)
-         @if($pp->genre == $genre)
+      <h3>{{$playlist}}</h3>
+      @foreach($playlistContent as $s)
             <div>
                <div>
-                  <p>{{$s->id}}</p>
                   <img src="/css/img/Order-in-decline.jpg" alt="">
                   <div>
                      <h3><a href ='#' data-file="/render/{{ $s->id }}{{substr($s->url, 10)}}" data-nb='{{ $nb++}}' data-title='{{ $s->titre }}' data-artist='{{ $s->user->name }}' data-like='{{ $s->id }}' class="song">{{ $s->titre }}</a></h3>
@@ -32,7 +30,6 @@ $nb = 0;
                   @endguest
                </div>
             </div>
-         @endif     
       @endforeach
    </div>
 </section>
