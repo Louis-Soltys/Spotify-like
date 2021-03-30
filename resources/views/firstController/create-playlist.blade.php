@@ -8,6 +8,7 @@
         </div>
         <div class="playlist__create-playlist">
         <form method='post' action="/playlist" enctype="multipart/form-data" data-pjax>
+        @csrf
             <div>
                 <h2>Créer ta playlist</h2>
                 <input type="text" name="titre" placeholder="Nom de ta playlist">
@@ -28,7 +29,7 @@
                     </div>
                     <div>
                         <img src="/css/img/like.svg" alt="">
-                        <input type="checkbox">
+                        <input type="checkbox" name="checkbox[]" value="{{ $s->id }}">
                     </div>
                 </div>
 

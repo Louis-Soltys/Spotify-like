@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Song;
 use App\Models\User;
 use App\Models\Playlist;
+use App\Models\Contenu;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -83,8 +84,16 @@ class firstController extends Controller
         $playlist->titre = $request->input('titre');
         $playlist->user_id = Auth::id();
         $playlist->save();
-        dd($playlist);
 
+        $checkbox = $_POST['checkbox'];
+        $n = count($checkbox);
+
+        foreach($_POST['checkbox'] as $val){
+            $contenu = new Contenu();
+            $contenu->playlist_id = $playlist->id;
+            $contenu->song_id = $val;
+            $contenu->save();
+        }
         return back();
     }
 
