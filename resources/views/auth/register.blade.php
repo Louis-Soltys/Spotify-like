@@ -44,7 +44,7 @@
                 <img src="/css/img/padlock.svg" alt="">
                 <input id="password-confirm" type="password" placeholder="Confirmer mot de passe" class="form-control" name="password_confirmation" required autocomplete="new-password">
             </div>
-            <p>Si vous posséder un compte <a href="">Connectez-vous</a></p>
+            <p>Si vous posséder un compte <a href="{{ route('login') }}">Connectez-vous</a></p>
             <progress class="progress-bar-connexion" max="100" value="70"></progress>
             <button>S'inscrire</button>
         </form>

@@ -27,7 +27,7 @@
                 </span>
             @enderror
         </div>
-        <p>Si vous ne posséder pas de compte <a href="">Inscrivez-vous</a></p>
+        <p>Si vous ne posséder pas de compte <a href="{{ route('register') }}">Inscrivez-vous</a></p>
         <progress class="progress-bar-connexion" max="100" value="70"></progress>
         <button>Connexion</button>
         @if (Route::has('password.request'))

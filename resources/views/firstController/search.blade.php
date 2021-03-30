@@ -24,9 +24,9 @@
                         @auth
                             @if(Auth::id() != $u->id)
                                 @if(Auth::user()->ILikeThem->contains($u->id))
-                                    <button href="/changeLike/{{$u->id}}">Suivi</button>
+                                    <button href="/changeLike/{{$u->id}}" id='unfo'>Abonner</button>
                                 @else
-                                    <button href="/changeLike/{{$u->id}}">Suivre</button>
+                                    <button href="/changeLike/{{$u->id}}" id='follow'>Désabonner</button>
                                 @endif
                             @endif    
                         @endauth

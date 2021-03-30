@@ -28,15 +28,15 @@
                         <a href="/">Accueil</a>
                     </div>
                     <div>
-                        <img class="earth" src="/css/img/earth.svg" alt="">
+                        <img class="earth" src="/css/img/list.svg" alt="">
                         <a href="/categories">Catégories</a>
                     </div>
                     <div>
-                        <img class="earth" src="/css/img/earth.svg" alt="">
+                        <img class="earth" src="/css/img/like-2.svg" alt="">
                         <a href="/favorite">Favoris</a>
                     </div>
                     <div>
-                        <img class="earth" src="/css/img/earth.svg" alt="">
+                        <img class="earth" src="/css/img/follower.svg" alt="">
                         <a href="/abonnes">Abonnés</a>
                     </div>
                 </nav>
@@ -45,7 +45,7 @@
                 <h3>Playlist</h3>
                 <nav>
                     <div>
-                        <img class="earth" src="/css/img/earth.svg" alt="">
+                        <img class="earth" src="/css/img/plus.svg" alt="">
                         <a href="/create-playlist">Create playlist</a>
                     </div>
                 </nav>
@@ -67,12 +67,12 @@
                 @else
                     <nav>
                         <div>
-                            <img class="earth" src="/css/img/earth.svg" alt="">
+                            <img class="earth" src="/css/img/user.svg" alt="">
                             <a href="/users/{{Auth::user()->id}}">{{ Auth::user()->name }}</a>
                         </div>
     
                         <div>
-                            <img class="earth" src="/css/img/earth.svg" alt="">
+                            <img class="earth" src="/css/img/check-out.svg" alt="">
                             <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
