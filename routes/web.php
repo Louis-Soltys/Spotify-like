@@ -29,6 +29,8 @@ Route::get('/abonnes', [firstController::class, 'abonnes'])->middleware('auth');
 Route::get("/changeSongLike/{id}", [firstController::class, "changeSongLike"])->middleware('auth')->where("id", "[0-9]+");
 Route::get("/render/{id}/{file}", [firstController::class, "render"]);
 Route::post('/playlist', [firstController::class, "storeplaylist"])->middleware('auth');
+Route::get('/genre/{genre}', [firstController::class, "genres"])->middleware('auth');
+
 
 
 Auth::routes();
