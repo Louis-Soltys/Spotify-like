@@ -138,9 +138,15 @@ class firstController extends Controller
     }
 
     function playlist(Request $playlist){
-        $p = Playlist::all();
-        $playlist = $playlist->id;
-        return view("firstController.playlist", ["p" => $p, "playlist" => $id]);
+        $s = Playlist::all();
+        $playlist = $playlist->titre;
+        $playlistContent = [];
+        $playlistContentTable = Contenu::all();
+        
+        foreach ($playlistContentTable as $songs) {
+            array_push($playlistContent, Song::select('*', 'songs.id AS idsong')->join('users', 'songs.user_id', '=', 'users.id')->where('songs.id', '=', $songs->id)->first());
+        }
+        return view("firstController.playlist", ["song" => $s, "playlistContent" => $playlistContent, "playlist" => $playlist]);
     }
 
 }
