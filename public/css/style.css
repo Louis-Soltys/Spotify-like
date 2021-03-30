@@ -177,6 +177,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 0 50px;
 }
 
@@ -990,28 +991,22 @@ body{
     align-items: center;
 }
 
-.playlist__listen-playlist{
-    width: 70%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.playlist__create-playlist{
+.body-container__playlist > form{
     width: 70%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
 }
 
-.playlist__create-playlist > div:nth-child(1){
-    width: 100%;
+.create-playlist__title{
+    width: 110%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.playlist__create-playlist > div:nth-child(1) > input{
+.create-playlist__title > input{
     display: flex;
     align-items: center;
     border: 1px solid var(--color-other-text);
@@ -1024,10 +1019,12 @@ body{
 
 .create-playlist__container{
     width: 100%;
+    height: 45vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    overflow: scroll;
 }
 
 .create-playlist__container > div{
@@ -1043,7 +1040,14 @@ body{
     align-items: center;
 }
 
-.create-playlist__container > div > div:nth-child(1) > p{
+.create-playlist__container a{
+    color: white;
+    text-decoration: none;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+.create-playlist__container > div > div:nth-child(1) p{
     margin-right: 10px;
 }
 
@@ -1077,7 +1081,7 @@ body{
     justify-content: flex-end;
 }
 
-.playlist__create-playlist > form > button{
+.body-container__playlist > form > button{
     margin-top: 30px;
     border: 1px solid var(--color-blue);
     border-radius: 20px;
