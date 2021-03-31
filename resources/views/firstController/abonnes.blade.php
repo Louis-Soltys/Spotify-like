@@ -5,7 +5,7 @@
     <div class="body-container__abonne">
         <div>
             <h2>Mes abonnés</h2>
-            <p>20</p>
+            <p>2</p>
         </div>
         <div class="abonne-container">
             <div>
